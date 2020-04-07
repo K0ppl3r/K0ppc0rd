@@ -1,0 +1,14 @@
+name: K0ppc0rd
+version: 1.0
+main: de.koppler.koppcord.koppcord
+author: K0ppl3r
+commands:
+  reloadconfig:
+    aliases: [configreload, rlc, koppcordreload, kcrl]
+  spawn:
+  rule:
+    aliases: [rules, regeln, regel]
+  wartung:
+  build:
+  playerdata:
+    aliases: [pd, playerd]
