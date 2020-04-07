@@ -1,6 +1,6 @@
 name: K0ppc0rd
 version: 1.0
-main: de.koppler.koppcord.koppcord
+main: de.k0ppl3r.k0ppc0rd.koppcord
 author: K0ppl3r
 commands:
   reloadconfig:
