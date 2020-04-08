@@ -24,6 +24,13 @@ public class Config {
 	private static ArrayList<String> TablistFooter = new ArrayList<String>();
 	private static ArrayList<String> Rules = new ArrayList<String>();
 	private static ArrayList<String> Helps = new ArrayList<String>();
+	private static ArrayList<String> InfoYouTuber = new ArrayList<String>();
+	private static ArrayList<String> InfoStreamer = new ArrayList<String>();
+	private static ArrayList<String> InfoTeamMitglied = new ArrayList<String>();
+	private static ArrayList<String> InfoHelp = new ArrayList<String>();
+	private static ArrayList<String> Streamer = new ArrayList<String>();
+	private static ArrayList<String> YouTuber = new ArrayList<String>();
+	private static ArrayList<String> Partner = new ArrayList<String>();
 
 	public Config(koppcord plugin) {
 		this.plugin = plugin;
@@ -72,16 +79,33 @@ public class Config {
 		//helps
 		Helps.add("/test | Test Command!");
 		Helps.add("/test2 | Test2 Command!");
-		
+
+		//info
+		YouTuber.add("Unknown");
+		Streamer.add("Unknown");
+		Partner.add("Unknown");
+		InfoHelp.add("/info help");
+		InfoYouTuber.add("200Abos");
+		InfoStreamer.add("100Abos");
+		InfoTeamMitglied.add("15Jahre alt");
 		
 		
 		yamlConfiguration.options().copyDefaults(true);
+		yamlConfiguration.addDefault("Link.Discord", "discord.gg/commingsoon");
+		yamlConfiguration.addDefault("Liste.YouTuber", YouTuber);
+		yamlConfiguration.addDefault("Liste.Streamer", Streamer);
+		yamlConfiguration.addDefault("Liste.Partner", Partner);
 		yamlConfiguration.addDefault("Message.Prefix", "§8[§1K0ppc0rd§8] §r");
 		yamlConfiguration.addDefault("Message.NoPermission", "§4§lDazu hast du keine Rechte!");
 		yamlConfiguration.addDefault("Message.Error", "§4Es ist ein Fehler aufgetreten!");
 		yamlConfiguration.addDefault("Message.MOTD", "§9Willkommen auf dem Community Server von K0ppc0rd!");
 		yamlConfiguration.addDefault("Message.Rules", Rules);
-		yamlConfiguration.addDefault("Message.Help", Helps);
+		yamlConfiguration.addDefault("Message.Help.Help", Helps);
+		yamlConfiguration.addDefault("Message.Help.Info", InfoHelp);
+		yamlConfiguration.addDefault("Message.Live.Timer.Seconds", 60);
+		yamlConfiguration.addDefault("Message.Info.Rang.YouTuber", InfoYouTuber);
+		yamlConfiguration.addDefault("Message.Info.Rang.Streamer", InfoStreamer);
+		yamlConfiguration.addDefault("Message.Info.Rang.TeamMitglied", InfoTeamMitglied);
 		yamlConfiguration.addDefault("Wartung.Aktiv", false);
 		yamlConfiguration.addDefault("Wartung.whitelist", allowedWartungUUID);
 		yamlConfiguration.addDefault("Wartung.Message.Kick", WartungKickMSG);
@@ -104,9 +128,178 @@ public class Config {
 		
 		try {
 			yamlConfiguration.load(file);
-		} catch (IOException | InvalidConfigurationException e) {
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (InvalidConfigurationException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+	public int getLiveTimer(){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		return yamlConfiguration.getInt("Message.Live.Timer.Seconds");
+
+	}
+
+	//List
+	public String getYouTuber(){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Liste.YouTuber");
+		String liststring = String.join("\n", list);
+
+		return liststring;
+	}
+	public String getStreamer(){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Liste.Streamer");
+		String liststring = String.join("\n", list);
+
+		return liststring;
+	}
+	public String getPartner(){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Liste.Partner");
+		String liststring = String.join("\n", list);
+
+		return liststring;
+	}
+
+	public void addYouTuber(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> spielerlist = yamlConfiguration.getStringList("Liste.YouTuber");
+		spielerlist.add(Player);
+		yamlConfiguration.set("Liste.YouTuber", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public void addStreamer(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> spielerlist = yamlConfiguration.getStringList("Liste.Streamer");
+		spielerlist.add(Player);
+		yamlConfiguration.set("Liste.Streamer", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void addPartner(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> spielerlist = yamlConfiguration.getStringList("Liste.Partner");
+		spielerlist.add(Player);
+		yamlConfiguration.set("Liste.Partner", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void removeYouTuber(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<?> spielerlist = yamlConfiguration.getList("Liste.YouTuber");
+		spielerlist.remove(Player);
+		yamlConfiguration.set("Liste.YouTuber", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void removeStreamer(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<?> spielerlist = yamlConfiguration.getList("Liste.Streamer");
+		spielerlist.remove(Player);
+		yamlConfiguration.set("Liste.Streamer", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void removePartner(String Player){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<?> spielerlist = yamlConfiguration.getList("Liste.Partner");
+		spielerlist.remove(Player);
+		yamlConfiguration.set("Liste.Partner", spielerlist);
+
+		try {
+			yamlConfiguration.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	//Info
+	public String getDiscordLink(){
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		return yamlConfiguration.getString("Link.Discord");
+	}
+	public String getInfoYouTuber() {
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Message.Info.Rang.YouTuber");
+		String liststring = String.join("\n", list);
+
+		return liststring.replaceAll("&", "§");
+	}
+	public String getInfoStreamer() {
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Message.Info.Rang.Streamer");
+		String liststring = String.join("\n", list);
+
+		return liststring.replaceAll("&", "§");
+	}
+	public String getInfoTeamMitglied() {
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Message.Info.Rang.TeamMitglied");
+		String liststring = String.join("\n", list);
+
+		return liststring.replaceAll("&", "§");
+	}
+	public String getInfoHelp() {
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Message.Help.Info");
+		String liststring = String.join("\n", list);
+
+		return liststring.replaceAll("&", "§");
 	}
 	
 	//Messages and Prefixes
@@ -132,7 +325,7 @@ public class Config {
 		File file = new File(plugin.getDataFolder() + "/config.yml");
 		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 		
-		List<String> list = yamlConfiguration.getStringList("Message.Help");
+		List<String> list = yamlConfiguration.getStringList("Message.Help.Help");
 		String liststring = String.join("\n", list);
 		
 		return liststring.replaceAll("&", "§");
@@ -180,7 +373,8 @@ public class Config {
 				.replaceAll("&", "§")
 				.replaceAll("%player_name%", player.getName())
 				.replaceAll("%online_players%", String.valueOf(Bukkit.getOnlinePlayers().size()))
-				.replaceAll("%max_players%", String.valueOf(Bukkit.getMaxPlayers()));
+				.replaceAll("%max_players%", String.valueOf(Bukkit.getMaxPlayers())
+				.replaceAll("%discordlink%", ));
 	}
 	public String getFooter(Player player) {
 		File file = new File(plugin.getDataFolder() + "/config.yml");

@@ -3,34 +3,27 @@ package de.k0ppl3r.k0ppc0rd;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import de.k0ppl3r.k0ppc0rd.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.k0ppl3r.k0ppc0rd.commands.ReloadConfig;
-import de.k0ppl3r.k0ppc0rd.commands.Rule;
-import de.k0ppl3r.k0ppc0rd.commands.Spawn;
-import de.k0ppl3r.k0ppc0rd.commands.Wartung;
-import de.k0ppl3r.k0ppc0rd.commands.playerdata;
-import de.k0ppl3r.k0ppc0rd.commands.Build;
 import de.k0ppl3r.k0ppc0rd.events.ChatEvent;
 import de.k0ppl3r.k0ppc0rd.events.JoinQuitEvent;
 import de.k0ppl3r.k0ppc0rd.events.DenyedEvents;
 import de.k0ppl3r.k0ppc0rd.events.InventoryEvent;
 import de.k0ppl3r.k0ppc0rd.utils.Config;
-import de.k0ppl3r.k0ppc0rd.utils.PlayerManager;
 
 public class koppcord extends JavaPlugin{
 	
 	private static koppcord instance;
 	
-	public ArrayList<UUID> buildmode = new ArrayList<>();
+	public ArrayList<UUID> buildmode = new ArrayList<UUID>();
 	
 	
 	@Override
 	public void onEnable() {
 		
 		instance = this;
-		
-		new PlayerManager(this).createPlayerDataOrdner();
+
 		new Config(this).createConfig();
 		
 		getCommand("spawn").setExecutor(new Spawn(this));
@@ -39,6 +32,8 @@ public class koppcord extends JavaPlugin{
 		getCommand("wartung").setExecutor(new Wartung(this));
 		getCommand("build").setExecutor(new Build(this));
 		getCommand("playerdata").setExecutor(new playerdata());
+		getCommand("live").setExecutor(new Live(this));
+		getCommand("newvideo").setExecutor(new NewVideo(this));
 		
 		getServer().getPluginManager().registerEvents(new JoinQuitEvent(this), this);
 		getServer().getPluginManager().registerEvents(new ChatEvent(this), this);

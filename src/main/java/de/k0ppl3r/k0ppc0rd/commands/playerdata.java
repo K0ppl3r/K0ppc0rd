@@ -30,7 +30,7 @@ public class playerdata implements CommandExecutor{
 		             	infocomp.setObfuscated(true);
 		                
 		                TextComponent prefix = new TextComponent();
-		                prefix.setText("[DEBUG] �r");
+		                prefix.setText("[DEBUG] §r");
 		                
 		                player.spigot().sendMessage(prefix, infocomp);
 				 } else {

@@ -46,7 +46,7 @@ public class Build implements CommandExecutor{
 					playerManager.sendNoPermMessage(player);
 				}
 			} else {
-				playerManager.sendPlayerErrorCode(player, "�6too.many.aguments");
+				playerManager.sendPlayerErrorCode(player, "§6too.many.aguments");
 			}
 		} else {
 			sender.sendMessage("Du musst ein Spieler sein!");

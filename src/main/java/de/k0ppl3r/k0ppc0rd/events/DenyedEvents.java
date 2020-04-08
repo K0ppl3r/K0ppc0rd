@@ -70,7 +70,7 @@ public class DenyedEvents implements Listener{
 		Config config = new Config(plugin);
 		if(event.getEntity().getKiller() != null){
 			if(event.getEntity().getKiller() instanceof Player){
-				event.setDeathMessage(config.getPrefix() + "�6" +   event.getEntity().getName() + " �cwurde von �6" + event.getEntity().getKiller().getName() + " �cget�tet!");
+				event.setDeathMessage(config.getPrefix() + "§6" +   event.getEntity().getName() + " §cwurde von §6" + event.getEntity().getKiller().getName() + " §cget§tet!");
 			}
 		} else {
 			event.setDeathMessage(ChatColor.RED + event.getEntity().getName() + " Starb!");

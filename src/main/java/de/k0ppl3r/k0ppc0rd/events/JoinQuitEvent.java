@@ -44,7 +44,7 @@ public class JoinQuitEvent implements Listener{
 		Config config = new Config(plugin);
 		PlayerManager playerManager = new PlayerManager(plugin);
 		
-		title.sendTitle(player, 10, 50, 10, "�c� �9�lK0ppc0rd �c�", "�cServer Befindet sich derzeit in Wartung!");
+		title.sendTitle(player, 10, 50, 10, "§c» §9§lK0ppc0rd §c«", "§cServer Befindet sich derzeit in Close Beta!");
 		
 		playerManager.createPlayerData(player);
 		playerManager.setPlayerJoinItems(player);
@@ -55,12 +55,12 @@ public class JoinQuitEvent implements Listener{
 		}
 		
 		if(!player.hasPlayedBefore()) {
-			event.setJoinMessage("�8[�aNEW�8] �a\\o/" + player.getName() + " �a\\o/");
+			event.setJoinMessage("§8[§aNEW§8] §a\\o/" + player.getName() + " §a\\o/");
 			if(config.spawnExist()) {
 				player.teleport(config.getSpawn());
 				player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
 			} else {
-				playerManager.sendPlayerErrorCode(player, "�6spawn.not.exist");
+				playerManager.sendPlayerErrorCode(player, "§6spawn.not.exist");
 			}
 		}
 		
@@ -68,9 +68,9 @@ public class JoinQuitEvent implements Listener{
 			player.teleport(config.getSpawn());
 			player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
 		} else {
-			playerManager.sendPlayerErrorCode(player, "�6spawn.not.exist");
+			playerManager.sendPlayerErrorCode(player, "§6spawn.not.exist");
 		}
-		event.setJoinMessage("�8[�a+�8] �a" + player.getName());
+		event.setJoinMessage("§8[§a+§8] §a" + player.getName());
 		player.setGameMode(GameMode.SURVIVAL);
 		
 		if(player.hasPermission("k0ppc0rd.chatskull")) {
@@ -94,10 +94,10 @@ public class JoinQuitEvent implements Listener{
 						players.sendMessage(lines);
 					}
 					if (i == 4) {
-						players.sendMessage(lines + " �4" + player.getName());
+						players.sendMessage(lines + " §4" + player.getName());
 					}
 					if(i == 5) {
-						players.sendMessage(lines + " " + "�aHat den Server Betreten!");
+						players.sendMessage(lines + " " + "§aHat den Server Betreten!");
 					}
 					i++;
 				}
@@ -113,7 +113,7 @@ public class JoinQuitEvent implements Listener{
 		
 		plugin.buildmode.remove(player.getUniqueId());
 		tablist.sendTab(player, config.getHeader(player), config.getFooter(player));
-		event.setQuitMessage("�8[�4-�8] �c" + event.getPlayer().getName());
+		event.setQuitMessage("§8[§4-§8] §c" + event.getPlayer().getName());
 		
 	}
 	

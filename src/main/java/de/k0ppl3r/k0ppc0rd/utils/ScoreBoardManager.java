@@ -26,22 +26,22 @@ public class ScoreBoardManager {
 		
 	    sb = Bukkit.getScoreboardManager().getNewScoreboard();
 	    obj = sb.registerNewObjective("ccc", "ddd");
-	    sb.registerNewTeam("00Besitzer").setPrefix("�4�lB �6�l� �4");
-	    sb.registerNewTeam("01Admin").setPrefix("�4�lA �6�l� �4");
-	    sb.registerNewTeam("02Developer").setPrefix("�b�lD �6�l� �b");
-	    sb.registerNewTeam("03Techniker").setPrefix("�b�lT �6�l� �b");
-	    sb.registerNewTeam("04Designer").setPrefix("�a�lD �6�l� �a");
-	    sb.registerNewTeam("05Scripter").setPrefix("�b�lS �6�l� �b");
-	    sb.registerNewTeam("06SrModerator").setPrefix("�c�lSrM �6�l� �c");
-	    sb.registerNewTeam("07Moderator").setPrefix("�c�lM �6�l� �c");
-	    sb.registerNewTeam("08Supporter").setPrefix("�9�lS �6�l� �9");
-	    sb.registerNewTeam("09Rekrut").setPrefix("�9�lR �6�l� �9");
-	    sb.registerNewTeam("10Partner").setPrefix("�5�lP �6�l� �5");
-	    sb.registerNewTeam("11Bekannter").setPrefix("�d�lB �6�l� �d");
-	    sb.registerNewTeam("12Streamer").setPrefix("�5�lS �6�l� �5");
-	    sb.registerNewTeam("13YouTuber").setPrefix("�fY�4T �6�l� �5");
-	    sb.registerNewTeam("14VIP").setPrefix("�6�lV �8�l� �6");
-	    sb.registerNewTeam("15Spieler").setPrefix("�7M �8�l� �7");
+	    sb.registerNewTeam("00Besitzer").setPrefix("§4§lB §6§l× §4");
+	    sb.registerNewTeam("01Admin").setPrefix("§4§lA §6§l× §4");
+	    sb.registerNewTeam("02Developer").setPrefix("§b§lD §6§l× §b");
+	    sb.registerNewTeam("03Techniker").setPrefix("§b§lT §6§l× §b");
+	    sb.registerNewTeam("04Designer").setPrefix("§a§lD §6§l× §a");
+	    sb.registerNewTeam("05Scripter").setPrefix("§b§lS §6§l× §b");
+	    sb.registerNewTeam("06SrModerator").setPrefix("§c§lSrM §6§l× §c");
+	    sb.registerNewTeam("07Moderator").setPrefix("§c§lM §6§l× §c");
+	    sb.registerNewTeam("08Supporter").setPrefix("§9§lS §6§l× §9");
+	    sb.registerNewTeam("09Rekrut").setPrefix("§9§lR §6§l× §9");
+	    sb.registerNewTeam("10Partner").setPrefix("§5§lP §6§l× §5");
+	    sb.registerNewTeam("11Bekannter").setPrefix("§d§lB §6§l× §d");
+	    sb.registerNewTeam("12Streamer").setPrefix("§5§lS §6§l× §5");
+	    sb.registerNewTeam("13YouTuber").setPrefix("§fY§4T §6§l× §5");
+	    sb.registerNewTeam("14VIP").setPrefix("§6§lV §8§l× §6");
+	    sb.registerNewTeam("15Spieler").setPrefix("§7M §8§l× §7");
 	    
 	    for(Player all : Bukkit.getOnlinePlayers()) {
 		    if(all.hasPermission("k0ppc0rd.prefix.besitzer")) {
@@ -79,71 +79,71 @@ public class ScoreBoardManager {
 		    }
 	    }
 	    
-	    obj.setDisplayName(" �c� �9�lK0ppc0rd �c� ");
+	    obj.setDisplayName(" §c§ §9§lK0ppc0rd §c§ ");
 	    obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 	    
-	    Score a = obj.getScore("�5");
-	    Score a1 = obj.getScore("�7Rang:");
+	    Score a = obj.getScore("§5");
+	    Score a1 = obj.getScore("§7Rang:");
 	    if (player.hasPermission("k0ppc0rd.prefix.besitzer")) {
-	      Score aa = obj.getScore(" �8� �4�lBesitzer");
+	      Score aa = obj.getScore(" §8§ §4§lBesitzer");
 	      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.admin")) {
-		      Score aa = obj.getScore(" �8� �4�lAdmin");
+		      Score aa = obj.getScore(" §8§ §4§lAdmin");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.developer")) {
-		      Score aa = obj.getScore(" �8� �b�lDeveloper");
+		      Score aa = obj.getScore(" §8§ §b§lDeveloper");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.techniker")) {
-		      Score aa = obj.getScore(" �8� �b�lTechnicker");
+		      Score aa = obj.getScore(" §8§ §b§lTechnicker");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.designer")) {
-		      Score aa = obj.getScore(" �8� �a�lDesigner");
+		      Score aa = obj.getScore(" §8§ §a§lDesigner");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.scripter")) {
-		      Score aa = obj.getScore(" �8� �b�lScripter");
+		      Score aa = obj.getScore(" §8§ §b§lScripter");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.srmoderator")) {
-		      Score aa = obj.getScore(" �8� �c�lSrModerator");
+		      Score aa = obj.getScore(" §8§ §c§lSrModerator");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.moderator")) {
-		      Score aa = obj.getScore(" �8� �c�lModerator");
+		      Score aa = obj.getScore(" §8§ §c§lModerator");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.supporter")) {
-		      Score aa = obj.getScore(" �8� �9�lSupporter");
+		      Score aa = obj.getScore(" §8§ §9§lSupporter");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.rekrut")) {
-		      Score aa = obj.getScore(" �8� �9�lRekrut");
+		      Score aa = obj.getScore(" §8§ §9§lRekrut");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.partner")) {
-		      Score aa = obj.getScore(" �8� �5�lPartner");
+		      Score aa = obj.getScore(" §8§ §5§lPartner");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.bekannter")) {
-		      Score aa = obj.getScore(" �8� �d�lBekannter");
+		      Score aa = obj.getScore(" §8§ §d§lBekannter");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.streamer")) {
-		      Score aa = obj.getScore(" �8� �5�lStreamer");
+		      Score aa = obj.getScore(" §8§ §5§lStreamer");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.youtuber")) {
-		      Score aa = obj.getScore(" �8� �f�lYou�4�lTuber");
+		      Score aa = obj.getScore(" §8§ §f§lYou§4§lTuber");
 		      aa.setScore(7);
 	    } else if(player.hasPermission("k0ppc0rd.prefix.vip")) {
-		      Score aa = obj.getScore(" �8� �6�lVIP");
+		      Score aa = obj.getScore(" §8§ §6§lVIP");
 		      aa.setScore(7);
 	    } else {
-	      Score aa = obj.getScore(" �8� �7Spieler");
+	      Score aa = obj.getScore(" §8§ §7Spieler");
 	      aa.setScore(7);
 	    }
 	    
 	    SimpleDateFormat Datum = new SimpleDateFormat("dd.MM.yyyy");
 		String StringDatum = Datum.format(new Date());
 	   
-	    Score c = obj.getScore("�3");
-	    Score d = obj.getScore("�cDatum:");
-		Score e = obj.getScore(" �8� �c" + StringDatum);
-	    Score f = obj.getScore("�2");
-	    Score g = obj.getScore("�9Discord:");
-	    Score h = obj.getScore(" �8� �ediscord.gg/rYnKKqg");
-	    Score i = obj.getScore("�1");
+	    Score c = obj.getScore("§3");
+	    Score d = obj.getScore("§cDatum:");
+		Score e = obj.getScore(" §8§ §c" + StringDatum);
+	    Score f = obj.getScore("§2");
+	    Score g = obj.getScore("§9Discord:");
+	    Score h = obj.getScore(" §8§ §ediscord.gg/rYnKKqg");
+	    Score i = obj.getScore("§1");
 	    
 	    a.setScore(9);
 	    a1.setScore(8);

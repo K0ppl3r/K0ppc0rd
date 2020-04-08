@@ -12,3 +12,6 @@ commands:
   build:
   playerdata:
     aliases: [pd, playerd]
+  newvideo:
+  live:
+    aliases: [stream]

@@ -25,9 +25,9 @@ public class Rule implements CommandExecutor{
 		
 		if(sender instanceof Player) {
 			if(args.length == 0) {
-				player.sendMessage("�8�l----- �4�lRegeln �8�l-----\n" + config.getRules() + "\n�8�l----- �4�lRegeln �8�l-----");
+				player.sendMessage("§8§l----- §4§lRegeln §8§l-----\n" + config.getRules() + "\n§8§l----- §4§lRegeln §8§l-----");
 			} else {
-				playerManager.sendPlayerErrorCode(player, "�6too.many.aguments!");
+				playerManager.sendPlayerErrorCode(player, "§6too.many.aguments!");
 			}
 		} else {
 			sender.sendMessage("Du musst ein Spieler sein!");

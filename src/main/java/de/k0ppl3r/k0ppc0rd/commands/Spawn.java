@@ -30,7 +30,7 @@ public class Spawn implements CommandExecutor{
 						player.teleport(config.getSpawn());
 						player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 1);
 					} else {
-						playerManager.sendPlayerErrorCode(player, "�6spawn.not.exist");
+						playerManager.sendPlayerErrorCode(player, "§6spawn.not.exist");
 					}
 				} else {
 					player.sendMessage(config.getNoPerm());
@@ -39,15 +39,15 @@ public class Spawn implements CommandExecutor{
 				if(args[0].equalsIgnoreCase("set")) {
 					if(player.hasPermission("k0ppc0rd.command.spawn.set")) {
 						config.setSpawn(player);
-						player.sendMessage(config.getPrefix() + "�9Der Spawn wurde erfolgreich gesetzt!");
+						player.sendMessage(config.getPrefix() + "§9Der Spawn wurde erfolgreich gesetzt!");
 					} else {
 						player.sendMessage(config.getNoPerm());
 					}
 				} else {
-					playerManager.sendPlayerErrorCode(player, "�6invalid.agument");
+					playerManager.sendPlayerErrorCode(player, "§6invalid.agument");
 				}
 			} else {
-				playerManager.sendPlayerErrorCode(player, "�6too.many.aguments");
+				playerManager.sendPlayerErrorCode(player, "§6too.many.aguments");
 			}
 		} else {
 			sender.sendMessage(config.getError());
