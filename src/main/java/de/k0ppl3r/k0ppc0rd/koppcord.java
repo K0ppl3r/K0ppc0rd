@@ -34,6 +34,7 @@ public class koppcord extends JavaPlugin{
 		getCommand("playerdata").setExecutor(new playerdata());
 		getCommand("live").setExecutor(new Live(this));
 		getCommand("newvideo").setExecutor(new NewVideo(this));
+		getCommand("info").setExecutor(new Info(this));
 		
 		getServer().getPluginManager().registerEvents(new JoinQuitEvent(this), this);
 		getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
