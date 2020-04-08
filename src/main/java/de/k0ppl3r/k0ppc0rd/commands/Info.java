@@ -43,6 +43,9 @@ public class Info implements CommandExecutor {
                 if(strings[0].equalsIgnoreCase("discord")){
                     player.sendMessage(config.getPrefix() + "§9Discord Link: " + config.getDiscordLink());
                 }
+                if(strings[0].equalsIgnoreCase("help")){
+                    player.sendMessage(config.getInfoHelp());
+                }
                 if(strings[0].equalsIgnoreCase("youtuber")){
                     player.sendMessage("§7===== §cYou§fTuber §7=====");
                     player.sendMessage("§8- " + config.getYouTuber());
@@ -148,23 +151,23 @@ public class Info implements CommandExecutor {
                             } else if(strings[1].equalsIgnoreCase("streamer")){
                                 player.sendMessage(config.getInfoStreamer());
                             } else if(strings[1].equalsIgnoreCase("partner")){
-
+                                player.sendMessage(config.getInfoPartner());
                             } else if(strings[1].equalsIgnoreCase("teammitglied")){
                                 player.sendMessage(config.getInfoTeamMitglied());
                             } else {
-
+                                player.sendMessage(config.getInfoHelp());
                             }
                         } else {
-
+                            player.sendMessage(config.getPrefix() + "Bitte verwende \"/info help\" um eine Übersicht an Befehlen zu bekommen!");
                         }
                     } else {
-
+                        player.sendMessage(config.getPrefix() + "Bitte verwende \"/info help\" um eine Übersicht an Befehlen zu bekommen!");
                     }
                 } else {
-
+                    player.sendMessage(config.getPrefix() + "Bitte verwende \"/info help\" um eine Übersicht an Befehlen zu bekommen!");
                 }
             } else {
-
+                player.sendMessage(config.getPrefix() + "Bitte verwende \"/info help\" um eine Übersicht an Befehlen zu bekommen!");
             }
         } else {
             commandSender.sendMessage("Du musst ein Spieler sein!");

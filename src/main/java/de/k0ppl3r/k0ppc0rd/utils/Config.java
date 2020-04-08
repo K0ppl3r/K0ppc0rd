@@ -150,7 +150,7 @@ public class Config {
 		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
 		List<String> list = yamlConfiguration.getStringList("Liste.YouTuber");
-		String liststring = String.join("\n", list);
+		String liststring = String.join("\n§8- ", list);
 
 		return liststring;
 	}
@@ -159,7 +159,7 @@ public class Config {
 		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
 		List<String> list = yamlConfiguration.getStringList("Liste.Streamer");
-		String liststring = String.join("\n", list);
+		String liststring = String.join("\n§8- ", list);
 
 		return liststring;
 	}
@@ -167,8 +167,8 @@ public class Config {
 		File file = new File(plugin.getDataFolder() + "/config.yml");
 		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
 
-		List<String> list = yamlConfiguration.getStringList("Liste.Partner");
-		String liststring = String.join("\n", list);
+		List<String> list = yamlConfiguration.getStringList("Liste.Pasrtner");
+		String liststring = String.join("\n§8- ", list);
 
 		return liststring;
 	}
@@ -292,6 +292,15 @@ public class Config {
 
 		return liststring.replaceAll("&", "§");
 	}
+	public String getInfoPartner() {
+		File file = new File(plugin.getDataFolder() + "/config.yml");
+		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
+
+		List<String> list = yamlConfiguration.getStringList("Message.Info.Rang.TeamMitglied");
+		String liststring = String.join("\n", list);
+
+		return liststring.replaceAll("&", "§");
+	}
 	public String getInfoHelp() {
 		File file = new File(plugin.getDataFolder() + "/config.yml");
 		YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
@@ -374,7 +383,7 @@ public class Config {
 				.replaceAll("%player_name%", player.getName())
 				.replaceAll("%online_players%", String.valueOf(Bukkit.getOnlinePlayers().size()))
 				.replaceAll("%max_players%", String.valueOf(Bukkit.getMaxPlayers())
-				.replaceAll("%discordlink%", ));
+				.replaceAll("%discordlink%", getDiscordLink()));
 	}
 	public String getFooter(Player player) {
 		File file = new File(plugin.getDataFolder() + "/config.yml");
